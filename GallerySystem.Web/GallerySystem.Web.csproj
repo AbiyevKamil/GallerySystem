@@ -17,4 +17,10 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\GallerySystem.Core\GallerySystem.Core.csproj" />
+      <ProjectReference Include="..\GallerySystem.DataAccess\GallerySystem.DataAccess.csproj" />
+      <ProjectReference Include="..\GallerySystem.Service\GallerySystem.Service.csproj" />
+    </ItemGroup>
+
 </Project>

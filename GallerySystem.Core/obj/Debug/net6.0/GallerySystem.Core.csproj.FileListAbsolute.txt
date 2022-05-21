@@ -1,0 +1,14 @@
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\bin\Debug\net6.0\GallerySystem.Core.deps.json
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\bin\Debug\net6.0\GallerySystem.Core.runtimeconfig.json
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\bin\Debug\net6.0\GallerySystem.Core.dll
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\bin\Debug\net6.0\GallerySystem.Core.pdb
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\GallerySystem.Core.csproj.AssemblyReference.cache
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\GallerySystem.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\GallerySystem.Core.AssemblyInfoInputs.cache
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\GallerySystem.Core.AssemblyInfo.cs
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\GallerySystem.Core.csproj.CoreCompileInputs.cache
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\GallerySystem.Core.dll
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\refint\GallerySystem.Core.dll
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\GallerySystem.Core.pdb
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\GallerySystem.Core.genruntimeconfig.cache
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Core\obj\Debug\net6.0\ref\GallerySystem.Core.dll

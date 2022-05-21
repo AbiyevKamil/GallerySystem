@@ -16,4 +16,8 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.5" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\GallerySystem.Core\GallerySystem.Core.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -303,6 +303,21 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "GallerySystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
+          "Microsoft.EntityFrameworkCore": "6.0.5",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.5"
+        },
+        "compile": {
+          "bin/placeholder/GallerySystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GallerySystem.Core.dll": {}
+        }
       }
     }
   },
@@ -783,10 +798,16 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "GallerySystem.Core/1.0.0": {
+      "type": "project",
+      "path": "../GallerySystem.Core/GallerySystem.Core.csproj",
+      "msbuildProject": "../GallerySystem.Core/GallerySystem.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "GallerySystem.Core >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.5",
       "Microsoft.EntityFrameworkCore >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.5",
@@ -819,7 +840,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Core\\GallerySystem.Core.csproj": {
+              "projectPath": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Core\\GallerySystem.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

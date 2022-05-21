@@ -681,6 +681,55 @@
             "rid": "win"
           }
         }
+      },
+      "GallerySystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
+          "Microsoft.EntityFrameworkCore": "6.0.5",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.5"
+        },
+        "compile": {
+          "bin/placeholder/GallerySystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GallerySystem.Core.dll": {}
+        }
+      },
+      "GallerySystem.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GallerySystem.Core": "1.0.0",
+          "GallerySystem.Service": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
+          "Microsoft.EntityFrameworkCore": "6.0.5",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.5",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5"
+        },
+        "compile": {
+          "bin/placeholder/GallerySystem.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GallerySystem.DataAccess.dll": {}
+        }
+      },
+      "GallerySystem.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GallerySystem.Core": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
+          "Microsoft.EntityFrameworkCore": "6.0.5",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.5"
+        },
+        "compile": {
+          "bin/placeholder/GallerySystem.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GallerySystem.Service.dll": {}
+        }
       }
     }
   },
@@ -1967,10 +2016,28 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "GallerySystem.Core/1.0.0": {
+      "type": "project",
+      "path": "../GallerySystem.Core/GallerySystem.Core.csproj",
+      "msbuildProject": "../GallerySystem.Core/GallerySystem.Core.csproj"
+    },
+    "GallerySystem.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../GallerySystem.DataAccess/GallerySystem.DataAccess.csproj",
+      "msbuildProject": "../GallerySystem.DataAccess/GallerySystem.DataAccess.csproj"
+    },
+    "GallerySystem.Service/1.0.0": {
+      "type": "project",
+      "path": "../GallerySystem.Service/GallerySystem.Service.csproj",
+      "msbuildProject": "../GallerySystem.Service/GallerySystem.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "GallerySystem.Core >= 1.0.0",
+      "GallerySystem.DataAccess >= 1.0.0",
+      "GallerySystem.Service >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.5",
       "Microsoft.EntityFrameworkCore >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.5",
@@ -2004,7 +2071,17 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Core\\GallerySystem.Core.csproj": {
+              "projectPath": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Core\\GallerySystem.Core.csproj"
+            },
+            "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.DataAccess\\GallerySystem.DataAccess.csproj": {
+              "projectPath": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.DataAccess\\GallerySystem.DataAccess.csproj"
+            },
+            "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Service\\GallerySystem.Service.csproj": {
+              "projectPath": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Service\\GallerySystem.Service.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
