@@ -104,9 +104,6 @@
             "projectReferences": {
               "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Core\\GallerySystem.Core.csproj": {
                 "projectPath": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Core\\GallerySystem.Core.csproj"
-              },
-              "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Service\\GallerySystem.Service.csproj": {
-                "projectPath": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Service\\GallerySystem.Service.csproj"
               }
             }
           }
@@ -189,6 +186,9 @@
             "projectReferences": {
               "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Core\\GallerySystem.Core.csproj": {
                 "projectPath": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Core\\GallerySystem.Core.csproj"
+              },
+              "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.DataAccess\\GallerySystem.DataAccess.csproj": {
+                "projectPath": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.DataAccess\\GallerySystem.DataAccess.csproj"
               }
             }
           }

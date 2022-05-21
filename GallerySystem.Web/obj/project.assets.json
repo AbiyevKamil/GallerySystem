@@ -702,7 +702,6 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "GallerySystem.Core": "1.0.0",
-          "GallerySystem.Service": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.5",
@@ -720,6 +719,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "GallerySystem.Core": "1.0.0",
+          "GallerySystem.DataAccess": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.5"

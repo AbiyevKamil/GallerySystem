@@ -6,6 +6,8 @@ using GallerySystem.DataAccess.Repositories.Implementations;
 using GallerySystem.DataAccess.Repositories.Implementations.Base;
 using GallerySystem.DataAccess.UnitOfWork.Abstractions;
 using GallerySystem.DataAccess.UnitOfWork.Implementations;
+using GallerySystem.Service.Business.Abstractions;
+using GallerySystem.Service.Business.Implementations;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,6 +42,10 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
 builder.Services.AddScoped<IPhotoRepository, PhotoRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAlbumService, AlbumService>();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+
 
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 

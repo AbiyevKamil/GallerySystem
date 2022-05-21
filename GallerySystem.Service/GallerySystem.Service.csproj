@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\GallerySystem.Core\GallerySystem.Core.csproj" />
+      <ProjectReference Include="..\GallerySystem.DataAccess\GallerySystem.DataAccess.csproj" />
     </ItemGroup>
 
 </Project>
