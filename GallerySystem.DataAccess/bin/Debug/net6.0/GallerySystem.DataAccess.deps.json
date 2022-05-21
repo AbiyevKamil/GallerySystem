@@ -9,7 +9,6 @@
       "GallerySystem.DataAccess/1.0.0": {
         "dependencies": {
           "GallerySystem.Core": "1.0.0",
-          "GallerySystem.Service": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.Design": "6.0.5",
@@ -548,17 +547,6 @@
         "runtime": {
           "GallerySystem.Core.dll": {}
         }
-      },
-      "GallerySystem.Service/1.0.0": {
-        "dependencies": {
-          "GallerySystem.Core": "1.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
-          "Microsoft.EntityFrameworkCore": "6.0.5",
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.5"
-        },
-        "runtime": {
-          "GallerySystem.Service.dll": {}
-        }
       }
     }
   },
@@ -898,11 +886,6 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "GallerySystem.Core/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "GallerySystem.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -15,3 +15,5 @@ D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Service\obj\Debug\net6.0\ref\Gal
 D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Service\bin\Debug\net6.0\GallerySystem.Core.dll
 D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Service\bin\Debug\net6.0\GallerySystem.Core.pdb
 D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Service\obj\Debug\net6.0\GallerySystem.Service.csproj.CopyComplete
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Service\bin\Debug\net6.0\GallerySystem.DataAccess.dll
+D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Service\bin\Debug\net6.0\GallerySystem.DataAccess.pdb

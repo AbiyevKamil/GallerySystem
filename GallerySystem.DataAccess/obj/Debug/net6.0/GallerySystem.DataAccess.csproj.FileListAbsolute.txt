@@ -15,5 +15,3 @@ D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.DataAccess\obj\Debug\net6.0\refi
 D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.DataAccess\obj\Debug\net6.0\GallerySystem.DataAccess.pdb
 D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.DataAccess\obj\Debug\net6.0\GallerySystem.DataAccess.genruntimeconfig.cache
 D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.DataAccess\obj\Debug\net6.0\ref\GallerySystem.DataAccess.dll
-D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.DataAccess\bin\Debug\net6.0\GallerySystem.Service.dll
-D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.DataAccess\bin\Debug\net6.0\GallerySystem.Service.pdb
