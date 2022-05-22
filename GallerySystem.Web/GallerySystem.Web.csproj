@@ -23,4 +23,9 @@
       <ProjectReference Include="..\GallerySystem.Service\GallerySystem.Service.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Common\Helpers\Abstractions" />
+      <Folder Include="Common\Helpers\Implementations" />
+    </ItemGroup>
+
 </Project>

@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Kamil\ASPNETCore\GallerySystem\GallerySystem.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -29,6 +33,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Shared/_LoginRegisterLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblJlZ2lzdGVyTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
