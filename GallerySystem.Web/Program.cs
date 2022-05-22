@@ -1,3 +1,4 @@
+using GallerySystem.Core.Config;
 using GallerySystem.Core.Entities;
 using GallerySystem.DataAccess.Contexts;
 using GallerySystem.DataAccess.Repositories.Abstractions;
@@ -55,8 +56,9 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAlbumService, AlbumService>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.AddScoped<IMailService, MailService>();
 
-
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
 var app = builder.Build();
@@ -78,6 +80,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Album}/{action=Index}/{id?}");
 
 app.Run();

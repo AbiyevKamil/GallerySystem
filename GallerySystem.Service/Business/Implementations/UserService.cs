@@ -3,16 +3,21 @@ using GallerySystem.Core.Entities;
 using GallerySystem.DataAccess.UnitOfWork.Abstractions;
 using GallerySystem.Service.Business.Abstractions;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace GallerySystem.Service.Business.Implementations;
 
 public class UserService : IUserService
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly ILogger<UserService> _logger;
+    private readonly IMailService _mailService;
 
-    public UserService(IUnitOfWork unitOfWork)
+    public UserService(IUnitOfWork unitOfWork, ILogger<UserService> logger, IMailService mailService)
     {
         _unitOfWork = unitOfWork;
+        _logger = logger;
+        _mailService = mailService;
     }
 
     public virtual async Task<IdentityResult> CreateAsync(User user, string password)
@@ -27,6 +32,9 @@ public class UserService : IUserService
 
     public virtual async Task<User> FindByUserNameAsync(string userName)
         => await _unitOfWork.Users.FindByUserNameAsync(userName);
+
+    public virtual async Task<User> FindByIdAsync(string id)
+        => await _unitOfWork.Users.FindByIdAsync(id);
 
     public virtual async Task<bool> CheckPasswordAsync(User user, string password)
         => await _unitOfWork.Users.CheckPasswordAsync(user, password);
@@ -52,7 +60,7 @@ public class UserService : IUserService
     public virtual async Task<IdentityResult> UpdateUserAsync(User user)
         => await _unitOfWork.Users.UpdateUserAsync(user);
 
-    public virtual async Task DeleteUserAsync(User user)
+    public virtual async Task<IdentityResult> DeleteUserAsync(User user)
         => await _unitOfWork.Users.DeleteUserAsync(user);
 
     public virtual async Task<string> GetResetPasswordTokenAsync(User user)
@@ -66,4 +74,10 @@ public class UserService : IUserService
 
     public virtual async Task AddProfilePictureAsync(User user)
         => await _unitOfWork.Users.AddProfilePictureAsync(user);
+
+    public bool SendEmailConfirmationLinkAsync(string email, string url)
+    {
+        string msg = $"Your email confirmation link: <a href=\"{url}\">Click here</a>";
+        return _mailService.SendEmail(msg, email);
+    }
 }

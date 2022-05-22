@@ -23,12 +23,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Album/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Profile/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Profile/DeleteAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxEZWxldGVBY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Profile/UpdateName.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxVcGRhdGVOYW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Profile/UpdateSocial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxVcGRhdGVTb2NpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Shared/Error.cshtml]
@@ -37,6 +53,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Shared/_LoginRegisterLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblJlZ2lzdGVyTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Shared/_SettingsNavbarPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZXR0aW5nc05hdmJhclBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Shared/_ValidationScriptsPartial.cshtml]

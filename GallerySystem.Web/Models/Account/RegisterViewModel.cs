@@ -15,10 +15,12 @@ public class RegisterViewModel
          ErrorMessage = "Fullname must contain two or more words."), Display(Name = "Full name")]
     public string FullName { get; set; }
 
-    [Required(ErrorMessage = "Password is required."), DataType(DataType.Password), Display(Name = "Password")]
+    [Required(ErrorMessage = "Password is required."), DataType(DataType.Password), Display(Name = "Password"),
+     MinLength(6, ErrorMessage = "Password must be at least 6 characters.")]
     public string Password { get; set; }
 
     [Required(ErrorMessage = "Confirm password is required."), DataType(DataType.Password),
-     Display(Name = "Confirm Password"), Compare(nameof(Password), ErrorMessage = "Passwords don't match.")]
+     Display(Name = "Confirm Password"), Compare(nameof(Password), ErrorMessage = "Passwords don't match."),
+     MinLength(6, ErrorMessage = "Password must be at least 6 characters.")]
     public string ConfirmPassword { get; set; }
 }

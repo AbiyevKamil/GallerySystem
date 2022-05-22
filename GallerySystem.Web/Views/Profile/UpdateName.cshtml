@@ -1,0 +1,54 @@
+﻿@model UpdateNameViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="row">
+    <partial name="_SettingsNavbarPartial"/>
+
+    <div class="col-lg-9">
+        <div class="d-grid gap-3 gap-lg-5">
+            <!-- Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title h4">Basic information</h2>
+                </div>
+                @if (ViewBag.Status is not null)
+                {
+                    <p class="alert alert-success mx-3">
+                        @ViewBag.Status
+                    </p>
+                }
+                @if (!Html.ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger mx-4" asp-validation-summary="All"></div>
+                }
+                <!-- Body -->
+                <div class="card-body">
+                    <!-- Form -->
+                    <form method="post" asp-action="UpdateName" asp-controller="Profile">
+                        <!-- Form -->
+                        <div class="row mb-4">
+                            <label asp-for="FullName" class="col-sm-3 col-form-label form-label">Full name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group input-group-sm-vertical">
+                                    <input asp-for="FullName" type="text" class="form-control"
+                                           placeholder="Your full name" aria-label="Your full name"
+                                           value="@Model.FullName">
+                                </div>
+                            </div>
+                            <span asp-validation-for="FullName" class="invalid-feedback"></span>
+                        </div>
+                        <!-- End Form -->
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                    <!-- End Form -->
+                </div>
+                <!-- End Body -->
+            </div>
+            <!-- End Card -->
+        </div>
+    </div>
+</div>

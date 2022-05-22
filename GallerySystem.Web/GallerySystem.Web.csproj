@@ -24,8 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Common\Helpers\Abstractions" />
-      <Folder Include="Common\Helpers\Implementations" />
+      <Folder Include="wwwroot\uploads\photos" />
+      <Folder Include="wwwroot\uploads\user_images" />
     </ItemGroup>
 
 </Project>

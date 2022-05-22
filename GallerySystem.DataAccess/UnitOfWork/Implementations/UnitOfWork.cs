@@ -16,15 +16,17 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     {
         _context = context;
         _userManager = userManager;
-
-        Users = new UserRepository(_context, _userManager);
-        Albums = new AlbumRepository(_context);
-        Photos = new PhotoRepository(_context);
     }
 
-    public IUserRepository Users { get; }
-    public IAlbumRepository Albums { get; }
-    public IPhotoRepository Photos { get; }
+
+    private IUserRepository users;
+    public IUserRepository Users => users ??= new UserRepository(_context, _userManager);
+    
+    private IAlbumRepository albums;
+    public IAlbumRepository Albums => albums ??= new AlbumRepository(_context);
+    
+    private IPhotoRepository photos;
+    public IPhotoRepository Photos => photos ??= new PhotoRepository(_context);
 
     public async Task CommitAsync()
         => await _context.SaveChangesAsync();

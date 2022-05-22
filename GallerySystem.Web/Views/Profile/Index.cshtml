@@ -1,0 +1,105 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+<div class="row">
+    <partial name="_SettingsNavbarPartial"/>
+
+    <div class="col-lg-9">
+        <div class="d-grid gap-3 gap-lg-5">
+            <!-- Card -->
+            <div class="card">
+                <!-- Profile Cover -->
+                <div class="profile-cover">
+                    <div class="profile-cover-img-wrapper">
+                        <img id="profileCoverImg" class="profile-cover-img" src="~/assets/img/1920x400/img2.jpg"
+                             alt="Image Description">
+
+                        <!-- Custom File Cover -->
+                        <div class="profile-cover-content profile-cover-uploader p-3">
+                        </div>
+                        <!-- End Custom File Cover -->
+                    </div>
+                </div>
+                <!-- End Profile Cover -->
+                <form method="post" asp-action="Index" asp-controller="Profile" enctype="multipart/form-data">
+                    <!-- Avatar -->
+                    <label class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar"
+                           for="editAvatarUploaderModal">
+                        <img id="editAvatarImgModal" class="avatar-img" src="~/uploads/user_images/@Model.ImagePath"
+                             alt="Image Description">
+
+                        <input asp-for="ImageFile" type="file" class="js-file-attach avatar-uploader-input" accept="image/*" id="editAvatarUploaderModal"
+                               data-hs-file-attach-options='{
+                            "textTarget": "#editAvatarImgModal",
+                            "mode": "image",
+                            "targetAttr": "src",
+                            "allowTypes": [".png", ".jpeg", ".jpg"]
+                         }'>
+
+                        <span class="avatar-uploader-trigger">
+                            <i class="bi-pencil-fill avatar-uploader-icon shadow-sm"></i>
+                        </span>
+                    </label>
+                    <!-- End Avatar -->
+                    @if (!Html.ViewData.ModelState.IsValid)
+                    {
+                        <div class="w-100 text-center text-danger my-2">
+                            <span asp-validation-for="ImageFile"></span>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-center mb-3">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+
+                </form>
+                <!-- Body -->
+            </div>
+
+            <!-- End Card -->
+            @if (TempData["EmailConfirmed"] is not null)
+            {
+                <div class="alert alert-info">
+                    @TempData["EmailConfirmed"]
+                </div>
+            }
+
+            @if (!@Model.IsEmailConfirmed)
+            {
+                <!-- Card -->
+                <div id="emailSection" class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Email</h4>
+                    </div>
+
+
+                    <!-- Body -->
+                    <div class="card-body">
+                        <p>Your current email address is <span class="fw-semi-bold">@Model.Email</span></p>
+                        @if (TempData["EmailStatus"] is not null)
+                        {
+                            <p class="alert alert-warning">
+                                @TempData["EmailStatus"]
+                            </p>
+                        }
+                        <!-- Form -->
+                        <form asp-action="SendConfirmationEmail" asp-controller="Profile" method="post">
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Send confirmation link</button>
+                            </div>
+                        </form>
+                        <!-- End Form -->
+                    </div>
+                    <!-- End Body -->
+                </div>
+                <!-- End Card -->
+            }
+
+
+        </div>
+
+        <!-- Sticky Block End Point -->
+        <div id="stickyBlockEndPoint"></div>
+    </div>
+</div>
+<!-- End Row -->

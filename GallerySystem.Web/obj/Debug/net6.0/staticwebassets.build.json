@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DkOxpjCMpL3W0oOGGpuWLJ/cE5HW7rYe+KjzQS9p0FA=",
+  "Hash": "x3dpzMK6ADr674kzpkovCGvan4cq1j6UwgbrfLWAn8o=",
   "Source": "GallerySystem.Web",
   "BasePath": "_content/GallerySystem.Web",
   "Mode": "Default",
@@ -12391,6 +12391,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\uploads\\user_images\\default_image.png",
+      "SourceId": "GallerySystem.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\",
+      "BasePath": "_content/GallerySystem.Web",
+      "RelativePath": "uploads/user_images/default_image.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\user_images\\default_image.png"
     }
   ]
 }

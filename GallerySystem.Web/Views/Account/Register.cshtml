@@ -21,7 +21,7 @@
                         </p>
                     </div>
                 </div>
-                @if (@ViewBag.HasError == true)
+                @if (!Html.ViewData.ModelState.IsValid)
                 {
                     <div class="alert alert-danger" asp-validation-summary="All">
                     </div>

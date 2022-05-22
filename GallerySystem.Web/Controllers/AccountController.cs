@@ -45,7 +45,6 @@ public class AccountController : Controller
             if (identityResult.Succeeded)
                 return RedirectToAction(nameof(Login));
 
-            @ViewBag.HasError = true;
             foreach (var error in identityResult.Errors)
                 ModelState.AddModelError("", error.Description);
         }
@@ -75,15 +74,13 @@ public class AccountController : Controller
                     var result =
                         await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
                     if (result.Succeeded)
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Album");
                 }
 
-                @ViewBag.HasError = true;
                 ModelState.AddModelError("", "Password is wrong.");
                 return View(model);
             }
 
-            @ViewBag.HasError = true;
             ModelState.AddModelError("", "Username is not registered.");
         }
 

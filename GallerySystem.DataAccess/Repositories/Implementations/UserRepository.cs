@@ -28,6 +28,8 @@ public class UserRepository : IUserRepository
     public virtual async Task<User> FindByEmailAsync(string email)
         => await _userManager.FindByEmailAsync(email);
 
+    public virtual async Task<User> FindByIdAsync(string id)
+        => await _userManager.FindByIdAsync(id);
 
     public virtual async Task<User> FindByUserNameAsync(string userName)
         => await _userManager.FindByNameAsync(userName);
@@ -64,7 +66,7 @@ public class UserRepository : IUserRepository
     public virtual async Task<IdentityResult> UpdateUserAsync(User user)
         => await _userManager.UpdateAsync(user);
 
-    public virtual async Task DeleteUserAsync(User user)
+    public virtual async Task<IdentityResult> DeleteUserAsync(User user)
         => await _userManager.DeleteAsync(user);
 
     public virtual async Task<string> GetResetPasswordTokenAsync(User user)
