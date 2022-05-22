@@ -1,6 +1,8 @@
 ﻿using GallerySystem.Core.Entities;
 using GallerySystem.Service.Business.Abstractions;
+using GallerySystem.Web.Common.Attributes;
 using GallerySystem.Web.Models.Account;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,12 +20,14 @@ public class AccountController : Controller
     }
 
     [HttpGet]
+    [AllowOnlyAnonymous]
     public IActionResult Register()
     {
         return View();
     }
 
     [HttpPost]
+    [AllowOnlyAnonymous]
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
         if (ModelState.IsValid)
@@ -41,6 +45,7 @@ public class AccountController : Controller
             if (identityResult.Succeeded)
                 return RedirectToAction(nameof(Login));
 
+            @ViewBag.HasError = true;
             foreach (var error in identityResult.Errors)
                 ModelState.AddModelError("", error.Description);
         }
@@ -49,17 +54,19 @@ public class AccountController : Controller
     }
 
     [HttpGet]
+    [AllowOnlyAnonymous]
     public IActionResult Login()
     {
         return View();
     }
 
     [HttpPost]
+    [AllowOnlyAnonymous]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
         if (ModelState.IsValid)
         {
-            var user = await _userService.FindByEmailAsync(model.Email);
+            var user = await _userService.FindByUserNameAsync(model.UserName);
             if (user is not null)
             {
                 var confirmPassword = await _userService.CheckPasswordAsync(user, model.Password);
@@ -70,11 +77,24 @@ public class AccountController : Controller
                     if (result.Succeeded)
                         return RedirectToAction("Index", "Home");
                 }
+
+                @ViewBag.HasError = true;
+                ModelState.AddModelError("", "Password is wrong.");
+                return View(model);
             }
 
-            ModelState.AddModelError("", "Email or password is wrong.");
+            @ViewBag.HasError = true;
+            ModelState.AddModelError("", "Username is not registered.");
         }
 
         return View(model);
+    }
+
+    [HttpPost]
+    [Authorize]
+    public async Task<IActionResult> LogOut()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction(nameof(Login), "Account");
     }
 }

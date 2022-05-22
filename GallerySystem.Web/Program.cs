@@ -8,6 +8,7 @@ using GallerySystem.DataAccess.UnitOfWork.Abstractions;
 using GallerySystem.DataAccess.UnitOfWork.Implementations;
 using GallerySystem.Service.Business.Abstractions;
 using GallerySystem.Service.Business.Implementations;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,11 +19,6 @@ var conString = builder.Configuration.GetConnectionString("ConString");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    // Check this url later
-    // options.AccessDeniedPath = "/home/"
-});
 builder.Services.AddDbContext<GalleryContext>(options => options.UseSqlServer(conString));
 builder.Services.AddIdentity<User, IdentityRole>(options =>
     {
@@ -35,6 +31,20 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
         options.SignIn.RequireConfirmedEmail = false;
     }).AddEntityFrameworkStores<GalleryContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.LoginPath = new PathString($"/account/login");
+    options.LogoutPath = new PathString($"/account/logout");
+    // Check here
+    options.AccessDeniedPath = new PathString($"/");
+    options.ExpireTimeSpan = TimeSpan.FromHours(72);
+    options.Cookie.Name = "IdentityCookie";
+});
 
 // DI
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
@@ -63,8 +73,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

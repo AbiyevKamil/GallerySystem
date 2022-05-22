@@ -22,14 +22,14 @@ public class GalleryContext : IdentityDbContext<User, IdentityRole, string>
             .HasForeignKey(i => i.UserId)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
-        
+
         builder.Entity<Photo>()
             .HasOne(i => i.Album)
             .WithMany(i => i.Photos)
             .HasForeignKey(i => i.AlbumId)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
-        
+
         base.OnModelCreating(builder);
     }
 }

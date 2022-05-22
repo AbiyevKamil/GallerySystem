@@ -1,4 +1,5 @@
-﻿@{
+﻿@model LoginViewModel
+@{
     ViewData["Title"] = "Login";
     Layout = "_LoginRegisterLayout";
 }
@@ -7,13 +8,13 @@
     <div class="card card-lg mb-5">
         <div class="card-body">
             <!-- Form -->
-            <form class="js-validate needs-validation" novalidate>
+            <form novalidate asp-action="Login" asp-controller="Account" method="post">
                 <div class="text-center">
                     <div class="mb-5">
                         <h1 class="display-5">Sign in</h1>
                         <p>
                             Don't have an account yet?
-                            <a class="link" href="authentication-signup-basic.html">
+                            <a class="link" asp-action="Register" asp-controller="Account">
                                 Sign
                                 up here
                             </a>
@@ -21,29 +22,33 @@
                     </div>
 
                 </div>
-
+                @if (@ViewBag.HasError == true)
+                {
+                    <div class="alert alert-danger" asp-validation-summary="All">
+                    </div>
+                }
                 <!-- Form -->
                 <div class="mb-4">
-                    <label class="form-label" for="signinSrEmail">Your email</label>
-                    <input type="email" class="form-control form-control-lg" name="email" id="signinSrEmail"
-                           tabindex="1" placeholder="email@address.com" aria-label="email@address.com" required>
-                    <span class="invalid-feedback">Please enter a valid email address.</span>
+                    <label asp-for="UserName" class="form-label"></label>
+                    <input asp-for="UserName" class="form-control form-control-lg"
+                           tabindex="1" placeholder="jacksparrow" aria-label="jacksparrow" required>
+                    <span asp-validation-for="UserName" class="invalid-feedback"></span>
                 </div>
                 <!-- End Form -->
 
                 <!-- Form -->
                 <div class="mb-4">
-                    <label class="form-label w-100" for="signupSrPassword" tabindex="0">
+                    <label class="form-label w-100" asp-for="Password" tabindex="0">
                         <span class="d-flex justify-content-between align-items-center">
                             <span>Password</span>
-                            <a class="form-label-link mb-0" href="authentication-reset-password-basic.html">Forgot Password?</a>
+                            <a class="form-label-link mb-0" asp-action="ResetPassword" asp-controller="Account">Forgot Password?</a>
                         </span>
                     </label>
 
                     <div class="input-group input-group-merge" data-hs-validation-validate-class>
-                        <input type="password" class="js-toggle-password form-control form-control-lg"
-                               name="password" id="signupSrPassword" placeholder="8+ characters required"
-                               aria-label="8+ characters required" required minlength="8"
+                        <input asp-for="Password" class="js-toggle-password form-control form-control-lg"
+                               placeholder="6+ characters required"
+                               aria-label="6+ characters required" required minlength="6"
                                data-hs-toggle-password-options='{
                            "target": "#changePassTarget",
                            "defaultClass": "bi-eye-slash",
@@ -56,16 +61,14 @@
                         </a>
                     </div>
 
-                    <span class="invalid-feedback">Please enter a valid password.</span>
+                    <span asp-validation-for="Password" class="invalid-feedback"></span>
                 </div>
                 <!-- End Form -->
 
                 <!-- Form Check -->
                 <div class="form-check mb-4">
-                    <input class="form-check-input" type="checkbox" value="" id="termsCheckbox">
-                    <label class="form-check-label" for="termsCheckbox">
-                        Remember me
-                    </label>
+                    <input asp-for="RememberMe" class="form-check-input" type="checkbox">
+                    <label asp-for="RememberMe" class="form-check-label"></label>
                 </div>
                 <!-- End Form Check -->
 
