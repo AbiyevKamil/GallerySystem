@@ -65,4 +65,7 @@ public class AlbumService : IAlbumService
 
     public virtual async Task<IList<Album>> GetDeletedByUserAsync(User user)
         => await _unitOfWork.Albums.GetDeletedByUserAsync(user);
+
+    public virtual async Task<Album> GetByIdAsync(User user, int id)
+        => await _unitOfWork.Albums.GetByIdAsync(user, id);
 }

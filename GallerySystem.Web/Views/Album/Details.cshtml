@@ -1,0 +1,61 @@
+﻿@model DetailsAlbumViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="card mb-3 mb-lg-5">
+    <!-- Header -->
+    <div class="card-header card-header-content-between">
+        <h4 class="card-header-title">@Model.Title (@Model.Photos.Count photos)</h4>
+
+        <div class="dropdown">
+            <a  asp-action="Add" asp-controller="Photo" asp-route-id="@Model.Id" class="btn btn-ghost-secondary btn-sm">
+                Add new photo
+            </a>
+        </div>
+    </div>
+    <!-- End Header -->
+
+    <!-- Body -->
+    <div class="card-body">
+        <!-- Gallery -->
+        <div id="fancyboxGallery" class="js-fancybox row justify-content-sm-center gx-3">
+            @foreach (var photo in Model.Photos)
+            {
+                <div class="col-6 col-sm-4 col-md-3 mb-3 mb-lg-5">
+                    <!-- Card -->
+                    <div class="card card-sm">
+                        <img class="card-img-top" src="~/uploads/photos/@photo.PhotoPath" alt="Image Description">
+
+                        <div class="card-body">
+                            <div class="row col-divider text-center">
+                                <div class="col">
+                                    <a class="text-body" href="~/uploads/photos/@photo.PhotoPath" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-fslightbox="gallery" data-bs-original-title="View">
+                                        <i class="bi-eye"></i>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a download class="text-body" href="~/uploads/photos/@photo.PhotoPath" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Download">
+                                        <i class="bi bi-download"></i>
+                                    </a>
+                                </div><!-- End Col -->
+
+                                <div class="col">
+                                    <a asp-action="Delete" asp-controller="Photo" asp-route-id="@photo.Id" class="text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete">
+                                        <i class="bi-trash"></i>
+                                    </a>
+                                </div>
+                                <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Card -->
+                </div>
+                <!-- End Col -->
+            }
+        </div>
+        <!-- End Gallery -->
+    </div>
+    <!-- Body -->
+</div>

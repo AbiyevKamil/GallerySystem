@@ -1,4 +1,4 @@
-﻿@model CreateAlbumViewModel
+﻿@model UpdateAlbumViewModel
 @{
     ViewData["Title"] = "Home";
 }
@@ -15,8 +15,11 @@
     <!-- Body -->
     <div class="card-body">
         <!-- Form -->
-        <form asp-action="Create" asp-controller="Album" method="post" enctype="multipart/form-data">
+        <form asp-action="Update" asp-controller="Album" method="post">
             <!-- Form -->
+            <div class="form-group mb-3">
+                <input asp-for="Id" type="hidden" class="form-control" placeholder="Favorites">
+            </div>
             <div class="row mb-4">
                 <label asp-for="Title" class="col-sm-3 col-form-label form-label"></label>
                 <div class="col-sm-9">
@@ -37,18 +40,9 @@
                 </div>
                 <span asp-validation-for="Description" class="invalid-feedback"></span>
             </div>
-            <div class="row mb-4">
-                <label asp-for="Description" class="col-sm-3 col-form-label form-label"></label>
-                <div class="col-sm-9">
-                    <div class="input-group input-group-sm-vertical">
-                        <input class="form-control" type="file" accept="image/*" asp-for="Files" multiple>
-                    </div>
-                </div>
-                <span asp-validation-for="Description" class="invalid-feedback"></span>
-            </div>
             <!-- End Form -->
             <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </form>
         <!-- End Form -->

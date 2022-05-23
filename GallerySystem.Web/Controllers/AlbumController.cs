@@ -29,8 +29,8 @@ public class AlbumController : Controller
             Title = i.Title,
             Description = i.Description,
             Cover = i.Photos.Any()
-                ? i.Photos.OrderByDescending(i => i.CreatedAt).Select(i => i.PhotoPath).First()
-                : "no_image.png",
+                ? i.Photos.OrderBy(i => i.CreatedAt).Select(i => i.PhotoPath).Last()
+                : "no_image.jpg",
             User = i.User,
             UserId = i.UserId,
             CreatedAt = i.CreatedAt,
@@ -71,7 +71,88 @@ public class AlbumController : Controller
         if (id is null)
             return RedirectToAction(nameof(Index));
         var user = await _userService.FindByClaimsAsync(User);
+        var album = await _albumService.GetByIdAsync(user, (int) id);
+        if (album is null)
+            return RedirectToAction(nameof(Index));
+        var model = new DetailsAlbumViewModel
+        {
+            Title = album.Title,
+            Description = album.Description,
+            CreatedAt = album.CreatedAt,
+            UpdatedAt = album.UpdatedAt,
+            Id = album.Id,
+            User = album.User,
+            UserId = album.UserId,
+            Photos = album.Photos,
+        };
+        return View(model);
+    }
 
-        return View();
+    [HttpGet]
+    public async Task<IActionResult> Update(int? id)
+    {
+        if (id is null)
+            return RedirectToAction(nameof(Index));
+        var user = await _userService.FindByClaimsAsync(User);
+        var album = await _albumService.GetByIdAsync(user, (int) id);
+        if (album is null)
+            return RedirectToAction(nameof(Index));
+        var model = new UpdateAlbumViewModel
+        {
+            Id = album.Id,
+            Description = album.Description,
+            Title = album.Title
+        };
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Update(UpdateAlbumViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = await _userService.FindByClaimsAsync(User);
+            var album = await _albumService.GetByIdAsync(user, model.Id);
+            if (album is null)
+                return RedirectToAction(nameof(Index));
+            album.Title = model.Title;
+            album.Description = model.Description;
+            await _albumService.UpdateAsync(album);
+            return RedirectToAction(nameof(Index));
+        }
+
+        return View(model);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id is null)
+            return RedirectToAction(nameof(Index));
+        var user = await _userService.FindByClaimsAsync(User);
+        var album = await _albumService.GetByIdAsync(user, (int) id);
+        if (album is null)
+            return RedirectToAction(nameof(Index));
+        var model = new DeleteAlbumViewModel
+        {
+            Id = album.Id,
+            Title = album.Title
+        };
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Delete(DeleteAlbumViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = await _userService.FindByClaimsAsync(User);
+            var album = await _albumService.GetByIdAsync(user, model.Id);
+            if (album is null)
+                return RedirectToAction(nameof(Index));
+            await _albumService.SoftDeleteAsync(album);
+            return RedirectToAction(nameof(Index));
+        }
+        return View(model);
     }
 }

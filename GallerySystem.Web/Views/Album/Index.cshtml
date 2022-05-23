@@ -3,9 +3,9 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="row">
+<div class="row mb-3">
     <div class="col-lg-9">
-        <h1>My Albums</h1>
+        <h1 class="text-primary">My Albums</h1>
     </div>
     <div class="col-lg-3 d-flex justify-content-end">
         <a asp-action="Create" asp-controller="Album">
@@ -14,12 +14,38 @@
         </a>
     </div>
 </div>
-<div class="">
+<div
+    class="d-flex gap-3 justify-content-center flex-wrap">
     @foreach (var album in Model)
     {
-        <div class="card">
-            <p>@album.Title</p>
-            <p>@album.Cover</p>
-        </div>
+        <a asp-action="Details" asp-controller="Album" asp-route-id="@album.Id">
+            <!-- Card -->
+            <div class="card" style="max-width: 20rem; width: 100%">
+                <img
+                    class="card-img-top"
+                    src="~/uploads/photos/@album.Cover"
+                    alt="Card image cap"/>
+                <div class="card-body">
+                    <h3 class="card-title">@album.Title</h3>
+                    <p>@album.Description</p>
+                </div>
+                <div class="row p-3 col-divider text-center">
+                    <div class="col">
+                        <a asp-action="Update" asp-controller="Album" asp-route-id="@album.Id" class="text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a asp-action="Delete" asp-controller="Album" asp-route-id="@album.Id" class="text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete">
+                            <i class="bi-trash"></i>
+                        </a>
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+            </div>
+            <!-- End Card -->
+        </a>
     }
+
 </div>
