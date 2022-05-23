@@ -1,23 +1,28 @@
 ﻿using System.Security.Claims;
 using GallerySystem.Core.Entities;
 using GallerySystem.DataAccess.UnitOfWork.Abstractions;
-using GallerySystem.Service.Business.Abstractions;
+using GallerySystem.Service.Business.Data.Abstractions;
+using GallerySystem.Service.Business.Utility.Abstractions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace GallerySystem.Service.Business.Implementations;
+namespace GallerySystem.Service.Business.Data.Implementations;
 
 public class UserService : IUserService
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<UserService> _logger;
     private readonly IMailService _mailService;
+    private readonly IFileService _fileService;
 
-    public UserService(IUnitOfWork unitOfWork, ILogger<UserService> logger, IMailService mailService)
+    public UserService(IUnitOfWork unitOfWork, ILogger<UserService> logger, IMailService mailService,
+        IFileService fileService)
     {
         _unitOfWork = unitOfWork;
         _logger = logger;
         _mailService = mailService;
+        _fileService = fileService;
     }
 
     public virtual async Task<IdentityResult> CreateAsync(User user, string password)
@@ -72,8 +77,16 @@ public class UserService : IUserService
     public virtual async Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword)
         => await _unitOfWork.Users.ChangePasswordAsync(user, currentPassword, newPassword);
 
-    public virtual async Task AddProfilePictureAsync(User user)
-        => await _unitOfWork.Users.AddProfilePictureAsync(user);
+
+    public virtual async Task<IdentityResult> AddProfilePictureAsync(User user, IFormFile file)
+    {
+        string imagePath = await _fileService.UploadUserImageAsync(file);
+        if (string.IsNullOrEmpty(imagePath))
+            return IdentityResult.Failed();
+        _fileService.DeleteUserImage(user.ImagePath);
+        user.ImagePath = imagePath;
+        return await _unitOfWork.Users.UpdateUserAsync(user);
+    }
 
     public bool SendEmailConfirmationLinkAsync(string email, string url)
     {

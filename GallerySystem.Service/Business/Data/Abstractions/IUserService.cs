@@ -1,8 +1,9 @@
 ﻿using System.Security.Claims;
 using GallerySystem.Core.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace GallerySystem.Service.Business.Abstractions;
+namespace GallerySystem.Service.Business.Data.Abstractions;
 
 public interface IUserService
 {
@@ -23,6 +24,6 @@ public interface IUserService
     Task<string> GetResetPasswordTokenAsync(User user);
     Task<IdentityResult> ResetPasswordAsync(User user, string token, string newPassword);
     Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword);
-    Task AddProfilePictureAsync(User user);
+    Task<IdentityResult> AddProfilePictureAsync(User user, IFormFile file);
     bool SendEmailConfirmationLinkAsync(string email, string url);
 }

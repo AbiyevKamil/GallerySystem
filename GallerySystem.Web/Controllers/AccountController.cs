@@ -1,5 +1,5 @@
 ﻿using GallerySystem.Core.Entities;
-using GallerySystem.Service.Business.Abstractions;
+using GallerySystem.Service.Business.Data.Abstractions;
 using GallerySystem.Web.Common.Attributes;
 using GallerySystem.Web.Models.Account;
 using Microsoft.AspNetCore.Authorization;

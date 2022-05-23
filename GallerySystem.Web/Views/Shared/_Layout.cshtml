@@ -1,4 +1,4 @@
-﻿@using GallerySystem.Service.Business.Abstractions
+﻿@using GallerySystem.Service.Business.Data.Abstractions
 @inject IUserService _userService
 @{
     var user = await _userService.FindByClaimsAsync(User);

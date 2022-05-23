@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x3dpzMK6ADr674kzpkovCGvan4cq1j6UwgbrfLWAn8o=",
+  "Hash": "jMKVBBMsfqY+O8TcjLjATs2rLp2jR05MppeAyY8Ngw4=",
   "Source": "GallerySystem.Web",
   "BasePath": "_content/GallerySystem.Web",
   "Mode": "Default",
@@ -12393,12 +12393,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\uploads\\user_images\\default_image.png",
+      "Identity": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\uploads\\user_images\\ac2a3e81-69d0-42c1-8f1e-b0091c197718_news2.jpg",
       "SourceId": "GallerySystem.Web",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\",
       "BasePath": "_content/GallerySystem.Web",
-      "RelativePath": "uploads/user_images/default_image.png",
+      "RelativePath": "uploads/user_images/ac2a3e81-69d0-42c1-8f1e-b0091c197718_news2.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -12407,7 +12407,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\user_images\\default_image.png"
+      "OriginalItemSpec": "wwwroot\\uploads\\user_images\\ac2a3e81-69d0-42c1-8f1e-b0091c197718_news2.jpg"
+    },
+    {
+      "Identity": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\uploads\\user_images\\da8bb1ad-0f31-4fec-b62f-56246c4d9645_news1.jpg",
+      "SourceId": "GallerySystem.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\",
+      "BasePath": "_content/GallerySystem.Web",
+      "RelativePath": "uploads/user_images/da8bb1ad-0f31-4fec-b62f-56246c4d9645_news1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\user_images\\da8bb1ad-0f31-4fec-b62f-56246c4d9645_news1.jpg"
     }
   ]
 }

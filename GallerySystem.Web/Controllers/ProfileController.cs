@@ -1,5 +1,5 @@
 ﻿using GallerySystem.Core.Entities;
-using GallerySystem.Service.Business.Abstractions;
+using GallerySystem.Service.Business.Data.Abstractions;
 using GallerySystem.Web.Models.Profile;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -38,11 +38,14 @@ public class ProfileController : Controller
     [HttpPost]
     public async Task<IActionResult> Index(UserViewModel model)
     {
+        var user = await _userService.FindByClaimsAsync(User);
         if (ModelState.IsValid)
         {
+            var result = await _userService.AddProfilePictureAsync(user, model.ImageFile);
+            if (result.Succeeded)
+                return RedirectToAction(nameof(Index));
         }
 
-        var user = await _userService.FindByClaimsAsync(User);
         model = new UserViewModel
         {
             Id = user.Id,

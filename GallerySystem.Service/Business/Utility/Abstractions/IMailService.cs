@@ -1,4 +1,4 @@
-﻿namespace GallerySystem.Service.Business.Abstractions;
+﻿namespace GallerySystem.Service.Business.Utility.Abstractions;
 
 public interface IMailService
 {

@@ -29,7 +29,8 @@
                         <img id="editAvatarImgModal" class="avatar-img" src="~/uploads/user_images/@Model.ImagePath"
                              alt="Image Description">
 
-                        <input asp-for="ImageFile" type="file" class="js-file-attach avatar-uploader-input" accept="image/*" id="editAvatarUploaderModal"
+                        <input asp-for="ImageFile" type="file" class="js-file-attach avatar-uploader-input" 
+                               accept="image/png, image/jpg, image/jpeg" id="editAvatarUploaderModal"
                                data-hs-file-attach-options='{
                             "textTarget": "#editAvatarImgModal",
                             "mode": "image",
@@ -44,8 +45,7 @@
                     <!-- End Avatar -->
                     @if (!Html.ViewData.ModelState.IsValid)
                     {
-                        <div class="w-100 text-center text-danger my-2">
-                            <span asp-validation-for="ImageFile"></span>
+                        <div class="text-center text-danger my-2" asp-validation-summary="All">
                         </div>
                     }
                     <div class="d-flex justify-content-center mb-3">

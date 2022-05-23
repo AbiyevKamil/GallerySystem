@@ -1,6 +1,6 @@
 ﻿using GallerySystem.Core.Entities;
 
-namespace GallerySystem.Service.Business.Abstractions;
+namespace GallerySystem.Service.Business.Data.Abstractions;
 
 public interface IAlbumService
 {

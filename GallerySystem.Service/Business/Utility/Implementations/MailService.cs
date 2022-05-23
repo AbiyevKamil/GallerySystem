@@ -1,11 +1,11 @@
 ﻿using System.Net;
 using System.Net.Mail;
 using GallerySystem.Core.Config;
-using GallerySystem.Service.Business.Abstractions;
+using GallerySystem.Service.Business.Utility.Abstractions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace GallerySystem.Service.Business.Implementations;
+namespace GallerySystem.Service.Business.Utility.Implementations;
 
 public class MailService : IMailService
 {

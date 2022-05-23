@@ -7,8 +7,10 @@ using GallerySystem.DataAccess.Repositories.Implementations;
 using GallerySystem.DataAccess.Repositories.Implementations.Base;
 using GallerySystem.DataAccess.UnitOfWork.Abstractions;
 using GallerySystem.DataAccess.UnitOfWork.Implementations;
-using GallerySystem.Service.Business.Abstractions;
-using GallerySystem.Service.Business.Implementations;
+using GallerySystem.Service.Business.Data.Abstractions;
+using GallerySystem.Service.Business.Data.Implementations;
+using GallerySystem.Service.Business.Utility.Abstractions;
+using GallerySystem.Service.Business.Utility.Implementations;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -57,8 +59,11 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAlbumService, AlbumService>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();
 builder.Services.AddScoped<IMailService, MailService>();
+builder.Services.AddScoped<IFileService, FileService>();
+
 
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+builder.Services.Configure<FileSettings>(builder.Configuration.GetSection("FileSettings"));
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
 var app = builder.Build();

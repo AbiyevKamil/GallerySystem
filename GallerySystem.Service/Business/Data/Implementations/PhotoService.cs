@@ -1,8 +1,8 @@
 ﻿using GallerySystem.Core.Entities;
 using GallerySystem.DataAccess.UnitOfWork.Abstractions;
-using GallerySystem.Service.Business.Abstractions;
+using GallerySystem.Service.Business.Data.Abstractions;
 
-namespace GallerySystem.Service.Business.Implementations;
+namespace GallerySystem.Service.Business.Data.Implementations;
 
 public class PhotoService : IPhotoService
 {
