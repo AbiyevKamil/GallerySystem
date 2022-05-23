@@ -12,6 +12,6 @@ public class CreateAlbumViewModel
     [Display(Name = "Description (Optional)")]
     public string? Description { get; set; }
 
-    [Display(Name = "Photos (Optional)"), ValidateImage(ErrorMessage = "Allowed file types are: png, jpeg, jpg.")]
+    [Display(Name = "Photos (Optional)"), ValidateImage(true, ErrorMessage = "Allowed file types are: png, jpeg, jpg.")]
     public IList<IFormFile>? Files { get; set; }
 }

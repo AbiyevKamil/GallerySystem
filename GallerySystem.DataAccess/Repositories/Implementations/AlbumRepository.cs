@@ -49,7 +49,7 @@ public class AlbumRepository : BaseRepository<Album>, IAlbumRepository
     public virtual async Task<Album> GetByIdAsync(User user, int id)
     {
         return await _dbSet.Include(i => i.User)
-            .Include(i => i.Photos)
+            .Include(i => i.Photos.Where(i => !i.IsDeleted))
             .FirstOrDefaultAsync(i => i.User == user && !i.IsDeleted && i.Id == id);
     }
 }

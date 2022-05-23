@@ -18,17 +18,17 @@ public class MailService : IMailService
         _mailSettings = mailOptions.Value;
     }
 
-    public bool SendEmail(string msg, string to)
+    public bool SendEmail(CustomMailMessage msg)
     {
         try
         {
             // $"Your email confirmation link: <a href=\"{url}\">Click here</a>"
-            string emailBody = msg;
+            string emailBody = msg.Message;
             MailMessage message = new MailMessage();
             SmtpClient smtp = new SmtpClient();
             message.From = new MailAddress(_mailSettings.Mail);
-            message.To.Add(new MailAddress(to));
-            message.Subject = $"Email Confirmation | {_mailSettings.DisplayName}";
+            message.To.Add(new MailAddress(msg.To));
+            message.Subject = $"{msg.Subject} | {_mailSettings.DisplayName}";
             message.IsBodyHtml = true;
             message.Body = emailBody;
             smtp.Port = 587;

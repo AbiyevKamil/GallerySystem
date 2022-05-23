@@ -166,7 +166,7 @@ public class ProfileController : Controller
         var token = await _userService.GetEmailConfirmationTokenAsync(user);
         var url = Url.Action(nameof(ConfirmEmail), "Profile", new {userId = user.Id, token},
             Request.Scheme);
-        var result = _userService.SendEmailConfirmationLinkAsync(user.Email, url);
+        var result = _userService.SendEmailConfirmationLink(user.Email, url);
         if (result)
             TempData["EmailStatus"] = "Email confirmation link has been sent to your email. Check your inbox or spams.";
         else
@@ -179,6 +179,8 @@ public class ProfileController : Controller
     [AllowAnonymous]
     public async Task<IActionResult> ConfirmEmail(string userId, string token)
     {
+        if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
+            return RedirectToAction(nameof(Index), "Profile");
         // Send mail
         var user = await _userService.FindByIdAsync(userId);
         if (user is not null)

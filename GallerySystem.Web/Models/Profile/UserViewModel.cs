@@ -14,6 +14,6 @@ public class UserViewModel
     public bool IsEmailConfirmed { get; set; }
 
     [Required(ErrorMessage = "Choose an image."),
-     ValidateImage(ErrorMessage = "Allowed file types are: png, jpeg, jpg.")]
+     ValidateImage(false, ErrorMessage = "Allowed file types are: png, jpeg, jpg.")]
     public IFormFile ImageFile { get; set; }
 }

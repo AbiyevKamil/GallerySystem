@@ -1,0 +1,39 @@
+﻿@model AddPhotoViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Card -->
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title h4">Upload new photos</h2>
+    </div>
+    @if (!Html.ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger mx-4" asp-validation-summary="All"></div>
+    }
+    <!-- Body -->
+    <div class="card-body">
+        <!-- Form -->
+        <form asp-action="Add" asp-controller="Photo" method="post" enctype="multipart/form-data">
+            <!-- Form -->
+            <input type="hidden" asp-for="AlbumId">
+            <div class="row mb-4">
+                <label asp-for="Files" class="col-sm-3 col-form-label form-label"></label>
+                <div class="col-sm-9">
+                    <div class="input-group input-group-sm-vertical">
+                        <input class="form-control" type="file" accept="image/*" asp-for="Files" multiple>
+                    </div>
+                </div>
+                <span asp-validation-for="Files" class="invalid-feedback"></span>
+            </div>
+            <!-- End Form -->
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+        </form>
+        <!-- End Form -->
+    </div>
+    <!-- End Body -->
+</div>
+<!-- End Card -->

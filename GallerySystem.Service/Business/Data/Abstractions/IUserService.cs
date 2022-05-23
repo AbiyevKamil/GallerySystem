@@ -25,5 +25,6 @@ public interface IUserService
     Task<IdentityResult> ResetPasswordAsync(User user, string token, string newPassword);
     Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword);
     Task<IdentityResult> AddProfilePictureAsync(User user, IFormFile file);
-    bool SendEmailConfirmationLinkAsync(string email, string url);
+    bool SendEmailConfirmationLink(string email, string url);
+    bool SendResetPasswordLink(string email, string url);
 }

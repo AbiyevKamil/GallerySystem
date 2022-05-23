@@ -1,0 +1,42 @@
+﻿@model DeletePhotoViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<!-- Card -->
+<div id="deleteAccountSection" class="card">
+    <div class="card-header">
+        <h4 class="card-title">Delete photo</h4>
+    </div>
+    @if (!Html.ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger mx-4" asp-validation-summary="All"></div>
+    }
+    <!-- Body -->
+    <form class="card-body" asp-action="Delete" asp-controller="Photo" method="post">
+        <p class="card-text">
+            When you delete album, you lose access to photos in the Photo.
+        </p>
+        <input type="hidden" asp-for="PhotoId">
+        <input type="hidden" asp-for="PhotoPath">
+        <div class="mb-4">
+            <!-- Form Check -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" asp-for="IsAccepted">
+                <label class="form-check-label" asp-for="IsAccepted">
+                    Confirm that I want to delete this album: 
+                </label>
+            </div>
+            <div class="d-flex align-content-center justify-content-center">
+            <img style="max-width: 150px;" src="~/uploads/photos/@Model.PhotoPath" alt="photo"/>
+            </div>
+            <!-- End Form Check -->
+        </div>
+
+        <div class="d-flex justify-content-end gap-3">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+    </form>
+    <!-- End Body -->
+</div>
+<!-- End Card -->

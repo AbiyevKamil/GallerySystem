@@ -4,10 +4,19 @@ namespace GallerySystem.Web.Common.Attributes;
 
 public class ValidateImage : ValidationAttribute
 {
+    private readonly bool _isNullable;
+
+    public ValidateImage(bool isNullable)
+    {
+        _isNullable = isNullable;
+    }
+
     public override bool IsValid(object? value)
     {
-        if (value is null)
+        if (value is null && _isNullable)
             return true;
+        if (value is null && !_isNullable)
+            return false;
 
         string[] validExtensions = {".jpg", ".jpeg", ".png"};
         if (value is IFormFile formFile)

@@ -23,6 +23,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Account/SetNewPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZXROZXdQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Album/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +49,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Album/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Photo/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvdG9cQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Photo/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvdG9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Kamil/ASPNETCore/GallerySystem/GallerySystem.Web/Views/Profile/ChangePassword.cshtml]

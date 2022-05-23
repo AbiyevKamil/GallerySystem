@@ -65,4 +65,13 @@ public class PhotoService : IPhotoService
         await _unitOfWork.Photos.CreateMultipleAsync(photos);
         await _unitOfWork.CommitAsync();
     }
+
+    public virtual async Task<IList<Photo>> GetByUserAsync(User user)
+        => await _unitOfWork.Photos.GetByUserAsync(user);
+
+    public virtual async Task<IList<Photo>> GetDeletedByUserAsync(User user)
+        => await _unitOfWork.Photos.GetDeletedByUserAsync(user);
+
+    public virtual async Task<Photo> GetByIdAsync(User user, int id)
+        => await _unitOfWork.Photos.GetByIdAsync(user, id);
 }

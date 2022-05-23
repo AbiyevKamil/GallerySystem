@@ -39,6 +39,12 @@ public class AccountController : Controller
                 FullName = model.FullName,
                 CreatedAt = DateTime.UtcNow
             };
+            var exist = await _userService.FindByEmailAsync(model.Email);
+            if (exist is not null)
+            {
+                ModelState.AddModelError("", "Email has already been registered");
+                return View(model);
+            }
 
             var identityResult = await _userService.CreateAsync(user, model.Password);
 
@@ -93,5 +99,78 @@ public class AccountController : Controller
     {
         await _signInManager.SignOutAsync();
         return RedirectToAction(nameof(Login), "Account");
+    }
+
+    [HttpGet]
+    [AllowOnlyAnonymous]
+    public IActionResult ResetPassword()
+    {
+        return View();
+    }
+
+
+    [HttpPost]
+    [AllowOnlyAnonymous]
+    public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = await _userService.FindByEmailAsync(model.Email);
+            if (user is null)
+            {
+                ModelState.AddModelError("", "Email is not registered.");
+            }
+            else
+            {
+                var token = await _userService.GetResetPasswordTokenAsync(user);
+                var url = Url.Action(nameof(SetNewPassword), "Account", new {userId = user.Id, token},
+                    Request.Scheme);
+                var result = _userService.SendResetPasswordLink(user.Email, url);
+                if (result)
+                {
+                    ModelState.AddModelError("",
+                        "We have sent reset password link to your email. Check your inbox or spams.");
+                }
+            }
+        }
+
+        return View(model);
+    }
+
+    [HttpGet]
+    [AllowOnlyAnonymous]
+    public async Task<IActionResult> SetNewPassword(string userId, string token)
+    {
+        if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
+            return RedirectToAction(nameof(Login), "Account");
+        var user = await _userService.FindByIdAsync(userId);
+        if (user is null)
+            return RedirectToAction(nameof(Login), "Account");
+        var model = new SetNewPasswordViewModel
+        {
+            Id = user.Id,
+            Token = token
+        };
+        return View(model);
+    }
+
+    [HttpPost]
+    [AllowOnlyAnonymous]
+    public async Task<IActionResult> SetNewPassword(SetNewPasswordViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = await _userService.FindByIdAsync(model.Id);
+            if (user is null)
+                return RedirectToAction(nameof(ResetPassword), "Account");
+            var result = await _userService.ResetPasswordAsync(user, model.Token, model.Password);
+            if (result.Succeeded)
+                return RedirectToAction(nameof(Login), "Account");
+
+            foreach (var err in result.Errors)
+                ModelState.AddModelError("", err.Description);
+        }
+
+        return View(model);
     }
 }

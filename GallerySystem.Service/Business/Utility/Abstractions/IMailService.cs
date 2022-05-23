@@ -1,6 +1,8 @@
-﻿namespace GallerySystem.Service.Business.Utility.Abstractions;
+﻿using GallerySystem.Core.Config;
+
+namespace GallerySystem.Service.Business.Utility.Abstractions;
 
 public interface IMailService
 {
-    bool SendEmail(string msg, string to);
+    bool SendEmail(CustomMailMessage msg);
 }

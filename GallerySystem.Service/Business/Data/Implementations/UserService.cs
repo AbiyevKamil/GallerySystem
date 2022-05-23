@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using GallerySystem.Core.Config;
 using GallerySystem.Core.Entities;
 using GallerySystem.DataAccess.UnitOfWork.Abstractions;
 using GallerySystem.Service.Business.Data.Abstractions;
@@ -88,9 +89,25 @@ public class UserService : IUserService
         return await _unitOfWork.Users.UpdateUserAsync(user);
     }
 
-    public bool SendEmailConfirmationLinkAsync(string email, string url)
+    public bool SendEmailConfirmationLink(string email, string url)
     {
         string msg = $"Your email confirmation link: <a href=\"{url}\">Click here</a>";
-        return _mailService.SendEmail(msg, email);
+        return _mailService.SendEmail(new CustomMailMessage
+        {
+            Message = msg,
+            To = email,
+            Subject = "Confirm Email"
+        });
+    }
+
+    public bool SendResetPasswordLink(string email, string url)
+    {
+        string msg = $"Your reset password link: <a href=\"{url}\">Click here</a>";
+        return _mailService.SendEmail(new CustomMailMessage
+        {
+            Message = msg,
+            To = email,
+            Subject = "Reset Password"
+        });
     }
 }
