@@ -1,0 +1,32 @@
+﻿@model CreateAlbumViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<form asp-action="Create" asp-controller="Album" method="post" enctype="multipart/form-data">
+    <div class="text-center">
+        <div class="mb-5">
+            <h1 class="display-5 text-primary">New album</h1>
+        </div>
+    </div>
+    @if (!Html.ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger p-3" asp-validation-summary="All">
+        </div>
+    }
+    <div class="form-group mb-3">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" id="exampleFormControlInput1" placeholder="Favorites">
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Description"></label>
+        <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Files"></label>
+        <input class="form-control" type="file" accept="image/*" asp-for="Files" multiple>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>

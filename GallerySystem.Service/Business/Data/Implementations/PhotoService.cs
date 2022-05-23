@@ -1,16 +1,20 @@
 ﻿using GallerySystem.Core.Entities;
 using GallerySystem.DataAccess.UnitOfWork.Abstractions;
 using GallerySystem.Service.Business.Data.Abstractions;
+using GallerySystem.Service.Business.Utility.Abstractions;
+using Microsoft.AspNetCore.Http;
 
 namespace GallerySystem.Service.Business.Data.Implementations;
 
 public class PhotoService : IPhotoService
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IFileService _fileService;
 
-    public PhotoService(IUnitOfWork unitOfWork)
+    public PhotoService(IUnitOfWork unitOfWork, IFileService fileService)
     {
         _unitOfWork = unitOfWork;
+        _fileService = fileService;
     }
 
     public virtual async Task<IList<Photo>> GetAllAsync()
@@ -47,6 +51,18 @@ public class PhotoService : IPhotoService
     public virtual async Task RestoreAsync(Photo photo)
     {
         await _unitOfWork.Photos.RestoreAsync(photo);
+        await _unitOfWork.CommitAsync();
+    }
+
+    public virtual async Task CreateMultipleAsync(IList<IFormFile> files, Album album)
+    {
+        var photoPaths = await _fileService.UploadPhotosAsync(files);
+        var photos = photoPaths.Select(path => new Photo
+        {
+            PhotoPath = path,
+            Album = album
+        }).ToList();
+        await _unitOfWork.Photos.CreateMultipleAsync(photos);
         await _unitOfWork.CommitAsync();
     }
 }

@@ -1,5 +1,25 @@
-﻿@{
+﻿@model IList<IndexAlbumViewModel>
+@{
     ViewData["Title"] = "Home";
 }
 
-<h1>My Albums</h1>
+<div class="row">
+    <div class="col-lg-9">
+        <h1>My Albums</h1>
+    </div>
+    <div class="col-lg-3 d-flex justify-content-end">
+        <a asp-action="Create" asp-controller="Album">
+            <i class="bi bi-plus-square"></i>
+            New album
+        </a>
+    </div>
+</div>
+<div class="">
+    @foreach (var album in Model)
+    {
+        <div class="card">
+            <p>@album.Title</p>
+            <p>@album.Cover</p>
+        </div>
+    }
+</div>

@@ -7,4 +7,5 @@ public interface IPhotoRepository : IBaseRepository<Photo>
 {
     Task SoftDeleteAsync(Photo photo);
     Task RestoreAsync(Photo photo);
+    Task CreateMultipleAsync(IList<Photo> photos);
 }

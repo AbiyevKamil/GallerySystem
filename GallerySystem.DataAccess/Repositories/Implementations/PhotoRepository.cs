@@ -24,4 +24,9 @@ public class PhotoRepository : BaseRepository<Photo>, IPhotoRepository
         if (exist is not null)
             exist.IsDeleted = false;
     }
+
+    public virtual async Task CreateMultipleAsync(IList<Photo> photos)
+    {
+        await _dbSet.AddRangeAsync(photos);
+    }
 }

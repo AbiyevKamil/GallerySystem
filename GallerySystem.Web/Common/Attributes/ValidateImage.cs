@@ -6,13 +6,28 @@ public class ValidateImage : ValidationAttribute
 {
     public override bool IsValid(object? value)
     {
-        if (value == null)
-            return false;
+        if (value is null)
+            return true;
 
         string[] validExtensions = {".jpg", ".jpeg", ".png"};
+        if (value is IFormFile formFile)
+        {
+            var ext = Path.GetExtension(formFile.FileName).ToLower();
+            return validExtensions.Contains(ext) && formFile.ContentType.Contains("image");
+        }
 
-        var file = (IFormFile) value;
-        var ext = Path.GetExtension(file.FileName).ToLower();
-        return validExtensions.Contains(ext) && file.ContentType.Contains("image");
+        if (value is IList<IFormFile> files)
+        {
+            foreach (var file in files)
+            {
+                var ext = Path.GetExtension(file.FileName).ToLower();
+                if (!validExtensions.Contains(ext) || !file.ContentType.Contains("image"))
+                    return false;
+            }
+
+            return true;
+        }
+
+        return false;
     }
 }

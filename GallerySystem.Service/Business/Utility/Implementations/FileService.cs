@@ -45,8 +45,10 @@ public class FileService : IFileService
 
     public virtual async Task<IList<string>> UploadPhotosAsync(IList<IFormFile> files)
     {
-        // return await UploadFile(file, _fileSettings.PhotosPath);
-        throw new NotImplementedException();
+        var filePaths = new List<string>();
+        foreach (var file in files)
+            filePaths.Add(await UploadFile(file, _fileSettings.PhotosPath));
+        return filePaths;
     }
 
     public void DeleteFile(string fileName, string path)

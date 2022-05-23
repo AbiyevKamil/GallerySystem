@@ -1,4 +1,5 @@
 ﻿using GallerySystem.Core.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace GallerySystem.Service.Business.Data.Abstractions;
 
@@ -11,4 +12,5 @@ public interface IPhotoService
     Task DeleteAsync(Photo photo);
     Task SoftDeleteAsync(Photo photo);
     Task RestoreAsync(Photo photo);
+    Task CreateMultipleAsync(IList<IFormFile> files, Album album);
 }
