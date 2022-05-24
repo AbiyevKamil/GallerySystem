@@ -38,6 +38,7 @@ public class AlbumService : IAlbumService
 
     public virtual async Task UpdateAsync(Album album)
     {
+        album.UpdatedAt = DateTime.UtcNow;
         await _unitOfWork.Albums.UpdateAsync(album);
         await _unitOfWork.CommitAsync();
     }

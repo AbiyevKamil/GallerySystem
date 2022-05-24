@@ -13,7 +13,7 @@ const HSThemeAppearance = {
     const $appearances = document.querySelectorAll(`[data-hs-appearance="${theme}"]`)
 
     this._linkElementsAction(theme, $appearances, () => {
-      document.querySelector('[data-hs-appearance-onload-styles]').remove()
+      document.querySelector('[data-hs-appearance-onload-styles]')?.remove()
     })
 
     this._setVisablilityStyles(theme)

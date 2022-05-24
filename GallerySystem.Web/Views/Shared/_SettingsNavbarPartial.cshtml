@@ -29,37 +29,29 @@
         <!-- Navbar Collapse -->
         <div id="navbarVerticalNavMenu" class="collapse navbar-collapse">
             <ul id="navbarSettings"
-                class="js-sticky-block js-scrollspy card card-navbar-nav nav nav-tabs nav-lg nav-vertical"
-                data-hs-sticky-block-options='{
-                     "parentSelector": "#navbarVerticalNavMenu",
-                     "targetSelector": "#header",
-                     "breakpoint": "lg",
-                     "startPoint": "#navbarVerticalNavMenu",
-                     "endPoint": "#stickyBlockEndPoint",
-                     "stickyOffsetTop": 20
-                   }'>
+                class="card card-navbar-nav nav nav-tabs nav-lg nav-vertical">
                 <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString().ToLower() == "index" ? "active" : "")" asp-action="Index" asp-controller="Profile">
+                    <a class="nav-link" asp-action="Index" asp-controller="Profile">
                         <i class="bi-person nav-icon"></i> Profile
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString().ToLower() == "updatename" ? "active" : "")" asp-action="UpdateName" asp-controller="Profile">
+                    <a class="nav-link" asp-action="UpdateName" asp-controller="Profile">
                         <i class="bi-at nav-icon"></i> Full name
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString().ToLower() == "changepassword" ? "active" : "")" asp-action="ChangePassword" asp-controller="Profile">
+                    <a class="nav-link" asp-action="ChangePassword" asp-controller="Profile">
                         <i class="bi-key nav-icon"></i> Change password
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString().ToLower() == "updatesocial" ? "active" : "")" asp-action="UpdateSocial" asp-controller="Profile">
+                    <a class="nav-link" asp-action="UpdateSocial" asp-controller="Profile">
                         <i class="bi-instagram nav-icon"></i> Social accounts
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString().ToLower() == "deleteaccount" ? "active" : "")" asp-action="DeleteAccount" asp-controller="Profile">
+                    <a class="nav-link" asp-action="DeleteAccount" asp-controller="Profile">
                         <i class="bi-trash nav-icon"></i> Delete account
                     </a>
                 </li>
@@ -69,3 +61,5 @@
     </div>
     <!-- End Navbar -->
 </div>
+
+<script src="~/js/sidebar.js"></script>
