@@ -29,7 +29,6 @@ public class UserService : IUserService
     public virtual async Task<IdentityResult> CreateAsync(User user, string password)
         => await _unitOfWork.Users.CreateAsync(user, password);
 
-
     public virtual async Task<User> FindByClaimsAsync(ClaimsPrincipal claims)
         => await _unitOfWork.Users.FindByClaimsAsync(claims);
 
