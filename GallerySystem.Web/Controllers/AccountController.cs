@@ -60,9 +60,13 @@ public class AccountController : Controller
 
     [HttpGet]
     [AllowOnlyAnonymous]
-    public IActionResult Login()
+    public IActionResult Login(string? returnUrl)
     {
-        return View();
+        var model = new LoginViewModel
+        {
+            ReturnUrl = returnUrl
+        };
+        return View(model);
     }
 
     [HttpPost]
@@ -80,7 +84,11 @@ public class AccountController : Controller
                     var result =
                         await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
                     if (result.Succeeded)
+                    {
+                        if (!string.IsNullOrEmpty(model.ReturnUrl))
+                            return Redirect(model.ReturnUrl);
                         return RedirectToAction("Index", "Album");
+                    }
                 }
 
                 ModelState.AddModelError("", "Password is wrong.");

@@ -4,6 +4,7 @@ namespace GallerySystem.Web.Models.Account;
 
 public class LoginViewModel
 {
+    public string? ReturnUrl { get; set; }
     [Required(ErrorMessage = "Username is required."), Display(Name = "Username")]
     public string UserName { get; set; }
 

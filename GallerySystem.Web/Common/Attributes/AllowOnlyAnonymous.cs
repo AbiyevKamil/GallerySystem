@@ -9,7 +9,7 @@ public class AllowOnlyAnonymous : ActionFilterAttribute
     {
         if (context.HttpContext.User.Identity.IsAuthenticated)
         {
-            context.Result = new RedirectToActionResult("Index", "Home", null);
+            context.Result = new RedirectToActionResult("Index", "Album", null);
         }
     }
 }

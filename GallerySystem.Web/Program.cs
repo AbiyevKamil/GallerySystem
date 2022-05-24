@@ -43,7 +43,6 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.Cookie.HttpOnly = true;
     options.LoginPath = new PathString($"/account/login");
     options.LogoutPath = new PathString($"/account/logout");
-    // Check here
     options.AccessDeniedPath = new PathString($"/");
     options.ExpireTimeSpan = TimeSpan.FromHours(72);
     options.Cookie.Name = "IdentityCookie";
@@ -69,9 +68,12 @@ builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
+}
+else
+{
     app.UseHsts();
 }
 
