@@ -46,6 +46,8 @@ public class UserRepository : IUserRepository
     public virtual async Task<IdentityResult> UpdateUserAsync(User user)
         => await _userManager.UpdateAsync(user);
 
+    
+    
     public virtual async Task<IdentityResult> DeleteUserAsync(User user)
         => await _userManager.DeleteAsync(user);
 
@@ -57,5 +59,4 @@ public class UserRepository : IUserRepository
 
     public virtual async Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword)
         => await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
-
 }

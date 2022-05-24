@@ -43,7 +43,9 @@ public class ProfileController : Controller
         {
             var result = await _userService.AddProfilePictureAsync(user, model.ImageFile);
             if (result.Succeeded)
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("ChangePassword");
+            foreach (var error in result.Errors)
+                ModelState.AddModelError("", error.Description);
         }
 
         model = new UserViewModel

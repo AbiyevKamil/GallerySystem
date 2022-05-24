@@ -8,9 +8,6 @@ public class User : IdentityUser, IEntity, ICreatedAt, IUpdatedAt
     public string FullName { get; set; } = string.Empty;
 
     public string ImagePath { get; set; } = "default_image.png";
-
-    public string? TwitterUrl { get; set; }
-    public string? FacebookUrl { get; set; }
     public string? LinkedInUrl { get; set; }
 
     public virtual IList<Album> Albums { get; set; } = new List<Album>();

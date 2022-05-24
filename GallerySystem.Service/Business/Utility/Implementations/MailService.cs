@@ -31,8 +31,8 @@ public class MailService : IMailService
             message.Subject = $"{msg.Subject} | {_mailSettings.DisplayName}";
             message.IsBodyHtml = true;
             message.Body = emailBody;
-            smtp.Port = 587;
-            smtp.Host = "smtp.gmail.com";
+            smtp.Port = _mailSettings.Port;
+            smtp.Host = _mailSettings.Host;
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = new NetworkCredential(_mailSettings.Mail, _mailSettings.Password);

@@ -18,13 +18,12 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         _userManager = userManager;
     }
 
-
     private IUserRepository users;
     public IUserRepository Users => users ??= new UserRepository(_context, _userManager);
-    
+
     private IAlbumRepository albums;
     public IAlbumRepository Albums => albums ??= new AlbumRepository(_context);
-    
+
     private IPhotoRepository photos;
     public IPhotoRepository Photos => photos ??= new PhotoRepository(_context);
 
