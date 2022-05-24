@@ -35,7 +35,7 @@ public class AlbumController : Controller
             UserId = i.UserId,
             CreatedAt = i.CreatedAt,
             UpdatedAt = i.UpdatedAt,
-        }).ToList();
+        }).OrderByDescending(i => i.CreatedAt).ToList();
         return View(albums);
     }
 
@@ -153,6 +153,7 @@ public class AlbumController : Controller
             await _albumService.SoftDeleteAsync(album);
             return RedirectToAction(nameof(Index));
         }
+
         return View(model);
     }
 }

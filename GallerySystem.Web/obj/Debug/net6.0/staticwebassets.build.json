@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TSzTV/6M90bSVouVMsP0aAABQJVzCf5KU/IV5D2Ytu4=",
+  "Hash": "CvVhJfc5mg5DkGupWHO4iUazWenohWjDu13+IAcvlT4=",
   "Source": "GallerySystem.Web",
   "BasePath": "_content/GallerySystem.Web",
   "Mode": "Default",
@@ -12869,12 +12869,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\photos\\no_image.jpg"
     },
     {
-      "Identity": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\uploads\\user_images\\41d9a9c5-3064-4bd6-9647-915bdd2d8450_news2.jpg",
+      "Identity": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\uploads\\user_images\\0bb4078b-c349-4cab-839e-bee157c33889_news1.jpg",
       "SourceId": "GallerySystem.Web",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\",
       "BasePath": "_content/GallerySystem.Web",
-      "RelativePath": "uploads/user_images/41d9a9c5-3064-4bd6-9647-915bdd2d8450_news2.jpg",
+      "RelativePath": "uploads/user_images/0bb4078b-c349-4cab-839e-bee157c33889_news1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -12883,7 +12883,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\user_images\\41d9a9c5-3064-4bd6-9647-915bdd2d8450_news2.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\user_images\\0bb4078b-c349-4cab-839e-bee157c33889_news1.jpg"
     },
     {
       "Identity": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\uploads\\user_images\\default_image.png",
@@ -12918,6 +12918,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\user_images\\dfd994aa-882f-4d5f-b76a-36eba25eb165_news2.jpg"
+    },
+    {
+      "Identity": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\uploads\\user_images\\e82f67f7-c7e3-4d7d-986f-bfad7f30b5b4_news2.jpg",
+      "SourceId": "GallerySystem.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\",
+      "BasePath": "_content/GallerySystem.Web",
+      "RelativePath": "uploads/user_images/e82f67f7-c7e3-4d7d-986f-bfad7f30b5b4_news2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\user_images\\e82f67f7-c7e3-4d7d-986f-bfad7f30b5b4_news2.jpg"
     },
     {
       "Identity": "D:\\Kamil\\ASPNETCore\\GallerySystem\\GallerySystem.Web\\wwwroot\\uploads\\user_images\\f550dbaa-cabb-46a9-8e82-74f267241c53_news1.jpg",

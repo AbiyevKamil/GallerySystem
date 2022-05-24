@@ -24,8 +24,8 @@
                         <input asp-for="Title" type="text" class="form-control"
                                placeholder="Enter album title" aria-label="Enter album title">
                     </div>
+                    <span asp-validation-for="Title" class="invalid-feedback"></span>
                 </div>
-                <span asp-validation-for="Title" class="invalid-feedback"></span>
             </div>
             <div class="row mb-4">
                 <label asp-for="Description" class="col-sm-3 col-form-label form-label"></label>
@@ -34,8 +34,8 @@
                         <textarea class="form-control" asp-for="Description" 
                                     placeholder="Enter album description" rows="3"></textarea>
                     </div>
+                    <span asp-validation-for="Description" class="invalid-feedback"></span>
                 </div>
-                <span asp-validation-for="Description" class="invalid-feedback"></span>
             </div>
             <div class="row mb-4">
                 <label asp-for="Files" class="col-sm-3 col-form-label form-label"></label>
@@ -43,8 +43,8 @@
                     <div class="input-group input-group-sm-vertical">
                         <input class="form-control" type="file" accept="image/*" asp-for="Files" multiple>
                     </div>
+                    <span asp-validation-for="Files" class="invalid-feedback"></span>
                 </div>
-                <span asp-validation-for="Files" class="invalid-feedback"></span>
             </div>
             <!-- End Form -->
             <div class="d-flex justify-content-end">
