@@ -70,7 +70,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
+    app.UseStatusCodePagesWithRedirects("/Error/{0}");
 }
 else
 {

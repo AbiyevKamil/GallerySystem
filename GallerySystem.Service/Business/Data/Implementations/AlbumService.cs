@@ -50,13 +50,15 @@ public class AlbumService : IAlbumService
 
     public virtual async Task SoftDeleteAsync(Album album)
     {
-        await _unitOfWork.Albums.SoftDeleteAsync(album);
+        album.IsDeleted = true;
+        await _unitOfWork.Albums.UpdateAsync(album);
         await _unitOfWork.CommitAsync();
     }
 
     public virtual async Task RestoreAsync(Album album)
     {
-        await _unitOfWork.Albums.RestoreAsync(album);
+        album.IsDeleted = false;
+        await _unitOfWork.Albums.UpdateAsync(album);
         await _unitOfWork.CommitAsync();
     }
 

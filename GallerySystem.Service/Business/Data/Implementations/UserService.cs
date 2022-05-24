@@ -45,18 +45,6 @@ public class UserService : IUserService
     public virtual async Task<bool> CheckPasswordAsync(User user, string password)
         => await _unitOfWork.Users.CheckPasswordAsync(user, password);
 
-    public virtual async Task<bool> IsInRoleAsync(User user, string role)
-        => await _unitOfWork.Users.IsInRoleAsync(user, role);
-
-    public virtual async Task<IdentityResult> AddToRoleAsync(User user, string role)
-        => await _unitOfWork.Users.AddToRoleAsync(user, role);
-
-    public virtual async Task<IdentityResult> AddToRolesAsync(User user, IEnumerable<string> roles)
-        => await _unitOfWork.Users.AddToRolesAsync(user, roles);
-
-    public virtual async Task<IList<string>> GetRolesAsync(User user)
-        => await _unitOfWork.Users.GetRolesAsync(user);
-
     public virtual async Task<string> GetEmailConfirmationTokenAsync(User user)
         => await _unitOfWork.Users.GetEmailConfirmationTokenAsync(user);
 

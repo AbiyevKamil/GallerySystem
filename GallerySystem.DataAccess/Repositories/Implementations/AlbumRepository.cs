@@ -12,23 +12,6 @@ public class AlbumRepository : BaseRepository<Album>, IAlbumRepository
     {
     }
 
-    public virtual async Task SoftDeleteAsync(Album album)
-    {
-        // var exist = await _dbSet.FindAsync(album.Id);
-        // if (exist is not null)
-        //     exist.IsDeleted = true;
-        album.IsDeleted = true;
-        await base.UpdateAsync(album);
-    }
-
-    public virtual async Task RestoreAsync(Album album)
-    {
-        // var exist = await _dbSet.FindAsync(album.Id);
-        // if (exist is not null)
-        //     exist.IsDeleted = false;
-        album.IsDeleted = false;
-        await base.UpdateAsync(album);
-    }
 
     public virtual async Task<IList<Album>> GetByUserAsync(User user)
     {

@@ -12,24 +12,6 @@ public class PhotoRepository : BaseRepository<Photo>, IPhotoRepository
     {
     }
 
-    public virtual async Task SoftDeleteAsync(Photo photo)
-    {
-        // var exist = await _dbSet.FindAsync(photo.Id);
-        // if (exist is not null)
-        //     exist.IsDeleted = true;
-        photo.IsDeleted = true;
-        await base.UpdateAsync(photo);
-    }
-
-    public virtual async Task RestoreAsync(Photo photo)
-    {
-        // var exist = await _dbSet.FindAsync(photo.Id);
-        // if (exist is not null)
-        //     exist.IsDeleted = false;
-        photo.IsDeleted = false;
-        await base.UpdateAsync(photo);
-    }
-
     public virtual async Task CreateMultipleAsync(IList<Photo> photos)
     {
         await _dbSet.AddRangeAsync(photos);

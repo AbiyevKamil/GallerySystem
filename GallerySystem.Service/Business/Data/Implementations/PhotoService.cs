@@ -44,13 +44,15 @@ public class PhotoService : IPhotoService
 
     public virtual async Task SoftDeleteAsync(Photo photo)
     {
-        await _unitOfWork.Photos.SoftDeleteAsync(photo);
+        photo.IsDeleted = true;
+        await _unitOfWork.Photos.UpdateAsync(photo);
         await _unitOfWork.CommitAsync();
     }
 
     public virtual async Task RestoreAsync(Photo photo)
     {
-        await _unitOfWork.Photos.RestoreAsync(photo);
+        photo.IsDeleted = false;
+        await _unitOfWork.Photos.UpdateAsync(photo);
         await _unitOfWork.CommitAsync();
     }
 

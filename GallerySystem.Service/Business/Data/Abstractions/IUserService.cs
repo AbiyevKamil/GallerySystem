@@ -13,10 +13,6 @@ public interface IUserService
     Task<User> FindByUserNameAsync(string userName);
     Task<User> FindByIdAsync(string id);
     Task<bool> CheckPasswordAsync(User user, string password);
-    Task<bool> IsInRoleAsync(User user, string role);
-    Task<IdentityResult> AddToRoleAsync(User user, string role);
-    Task<IdentityResult> AddToRolesAsync(User user, IEnumerable<string> roles);
-    Task<IList<string>> GetRolesAsync(User user);
     Task<string> GetEmailConfirmationTokenAsync(User user);
     Task<IdentityResult> ConfirmEmailAsync(User user, string token);
     Task<IdentityResult> UpdateUserAsync(User user);

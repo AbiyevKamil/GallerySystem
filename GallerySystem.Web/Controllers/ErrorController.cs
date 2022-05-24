@@ -1,12 +1,11 @@
-﻿using System.Diagnostics;
-using GallerySystem.Web.Models;
+﻿using GallerySystem.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GallerySystem.Web.Controllers;
 
 public class HomeController : Controller
 {
-    [Route("/home/error/{statusCode}")]
+    [Route("/error/{statusCode}")]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error(int statusCode)
     {
