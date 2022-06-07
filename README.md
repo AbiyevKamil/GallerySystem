@@ -8,7 +8,7 @@
 - ASP.NET Core MVC (.NET 6)
 - MS SQL
 - Entity Framework Core
-- Onion architecture
+- N-tier architecture
 
 
 ## Steps to run project
