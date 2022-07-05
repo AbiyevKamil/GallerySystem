@@ -13,7 +13,7 @@
 
 ## Steps to run project
 
-To make migrations run this command in solution folder:
+To make migrations run this command the in solution folder:
 
 ```bash
   dotnet ef migrations add "init_db"  --project GallerySystem.DataAccess --startup-project GallerySystem.Web
